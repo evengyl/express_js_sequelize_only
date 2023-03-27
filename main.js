@@ -1,13 +1,13 @@
 require("dotenv").config()
-
-const express = require("express")
-const db = require("./models/index")
-const app = express()
 const port = process.env.PORT
 
+
+const express = require("express")
+const app = express()
 app.use(express.json())
 
 
+const db = require("./models/index")
 //initialisation de sequelize
 db.sequelize.authenticate()
 .then(() => { console.log("Connection DB OK") }) //ok connecté a mssql par le biai de tedious
