@@ -14,7 +14,7 @@ db.sequelize.authenticate()
 .catch((error) => { console.log("Erreur de Connection DB", error)})
 
 //sync db
-//db.sequelize.sync({force : true })
+//db.sequelize.sync({alter:true, force:true})
 
 const router = require("./routers/router")
 app.use("/api", router)

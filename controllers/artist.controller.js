@@ -3,38 +3,38 @@ const artistService = require("../services/artist.service")
 const artistController = {
 
     getAll : async (req, res, next) => {
-        await artistService.getAll()       
+        let allArtist = await artistService.getAll()       
         
-        res.json({})
+        res.json(allArtist)
     },
 
     getOneById : async (req, res, next) => {
         let id = req.params.id
         let oneArtist = await artistService.getOneById(id)
         
-        res.json({})
+        res.json(oneArtist)
     },
 
     add : async (req, res, next) => {
         let createArtist = req.body
-        await artistService.add(createArtist)
+        let artistCreated = await artistService.add(createArtist)
         
-        res.json({})
+        res.json(artistCreated)
     },
 
     update : async (req, res, next) => {
         let id = req.params.id
         let upArtist = req.body
-        await artistService.update(id, upArtist)
+        let updatedArtist = await artistService.update(id, upArtist)
         
-        res.json({})
+        res.json(updatedArtist)
     },
 
     delete : async (req, res, next) => {
         let id = req.params.id
-        await artistService.delete(id)
+        let deletedArtist = await artistService.delete(id)
         
-        res.json({})
+        res.json(deletedArtist)
     }
 }
 

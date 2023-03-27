@@ -17,8 +17,16 @@ const trackService = {
         }
     },
 
+    create : async (track, artistId) => {
+        const createdTrack = await db.Track.create(track)
+        await createdTrack.addArtist(artistId)
+
+        return createdTrack
+    },
+
     getOneById : async (id) => {
         const oneTrack = await db.Track.findByPk(id, {
+            include : ["genre"],
             attributes : ["id", "name"]
         })
 

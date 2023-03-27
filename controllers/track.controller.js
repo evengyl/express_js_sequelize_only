@@ -16,6 +16,16 @@ const trackController = {
             return
         }
         res.json(oneTrack)
+    },
+
+    create : async (req, res, next) => {
+        let artistId = req.params.artistId
+        let newTrack = req.body
+
+        let createdTrack = await trackService.create(newTrack, artistId)
+        console.log(createdTrack)
+
+        res.json(createdTrack)
     }
 }
 

@@ -7,5 +7,8 @@ routerTrack.route("/")
 routerTrack.route("/:id([0-9]+)")
     .get(trackController.getOneById)
 
+routerTrack.route("/:artistId([0-9]+)")
+    .post(trackController.create)
+
 
 module.exports = routerTrack

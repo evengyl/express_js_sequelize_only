@@ -22,6 +22,7 @@ db.Track = require("./track.model")(sequelize)
 //let track = require("./track.model")
 //db.Track = track(sequelize)
 db.Genre = require("./genre.model")(sequelize)
+db.Artist = require("./artist.model")(sequelize)
 
 
 
@@ -34,6 +35,11 @@ db.Genre.hasMany(db.Track, {
     onDelete : 'NO ACTION'
 })
 db.Track.belongsTo(db.Genre)
+
+//mtm  avec table track_artist
+db.Artist.belongsToMany(db.Track, { through : "track_artist", timestamps : false})
+db.Track.belongsToMany(db.Artist, { through : "track_artist", timestamps : false})
+
 
 
 
